@@ -1,4 +1,4 @@
-package co.edu.cesde.ga.app.model;
+package co.edu.cesde.ga.model;
 
 public class Groups {
 
