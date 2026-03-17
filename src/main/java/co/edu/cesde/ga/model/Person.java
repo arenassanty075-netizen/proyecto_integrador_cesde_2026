@@ -5,7 +5,7 @@ public class Person {
     private  Long userId;
     private String code;
     private String documentNumber;
-    private String firsName;
+    private String firstName;
     private String lastName;
     private String status;
 
@@ -18,7 +18,7 @@ public class Person {
         this.userId = userId;
         this.code = code;
         this.documentNumber = documentNumber;
-        this.firsName = firsName;
+        this.firstName = firsName;
         this.lastName = lastName;
         this.status = status;
     }
@@ -37,7 +37,7 @@ public class Person {
     }
 
     public String getFirsName() {
-        return firsName;
+        return firstName;
     }
 
     public String getLastName() {
@@ -61,7 +61,7 @@ public class Person {
     }
 
     public void setFirsName(String firsName) {
-        this.firsName = firsName;
+        this.firstName = firsName;
     }
 
     public void setLastName(String lastName) {
