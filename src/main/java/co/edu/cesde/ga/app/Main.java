@@ -8,7 +8,9 @@ import co.edu.cesde.ga.model.Teacher;
 public class Main {
 
     public static void main(String[] args) {
-        Person person = new Person();
-
-
+    }
 }
+
+
+
+
