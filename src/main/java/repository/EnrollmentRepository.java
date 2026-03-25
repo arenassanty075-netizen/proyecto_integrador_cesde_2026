@@ -5,17 +5,15 @@ import java.util.List;
 
 public interface EnrollmentRepository {
 
-    Enrollments update(Enrollments enrollment); // crear o actualizar
+    Enrollments create(Enrollments enrollment);
 
-    List<Enrollments> findAll(); // listar todos
+    List<Enrollments> findAll();
 
-    Enrollments findById(int enrollmentId); // buscar por id
+    Enrollments findById(long enrollmentId);
 
-    List<Enrollments> findByStudentId(int studentId); // buscar por estudiante
+    boolean delete(long enrollmentId);
 
-    List<Enrollments> findByGroupId(int groupId); // buscar por grupo
+    int count();
 
-    List<Enrollments> findByPeriodId(int periodId); // 🔥 importante según tu tabla
-
-    void delete(int enrollmentId); // eliminar
+    boolean update(Enrollments enrollment);
 }

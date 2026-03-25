@@ -1,4 +1,4 @@
-package co.edu.cesde.ga.repository;
+package repository;
 
 import co.edu.cesde.ga.model.Period;
 import java.util.List;
