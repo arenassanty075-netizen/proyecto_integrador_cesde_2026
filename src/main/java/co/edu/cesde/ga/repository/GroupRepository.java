@@ -1,0 +1,22 @@
+package co.edu.cesde.ga.repository;
+
+import co.edu.cesde.ga.model.Groups;
+
+import java.util.List;
+
+public interface GroupRepository {
+
+    Groups create(Groups group);
+
+    List<Groups> findAll();
+
+    Groups findById(Long groupId);
+
+    List<Groups> findByProgramId(Long programId);
+
+    boolean update(Groups group);
+
+    boolean delete(Long groupId);
+
+    int count();
+}
