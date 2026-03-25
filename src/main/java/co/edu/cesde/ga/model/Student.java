@@ -2,6 +2,7 @@ package co.edu.cesde.ga.model;
 
 public class Student extends Person {
 
+    private long studentId;   // ✅ AGREGAR ESTO
     private String birthDate;
 
     public Student() {
@@ -12,6 +13,15 @@ public class Student extends Person {
                    String birthDate) {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.birthDate = birthDate;
+    }
+
+    // ✅ GETTER Y SETTER CORRECTOS
+    public long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
     }
 
     public String getBirthDate() {
