@@ -1,7 +1,7 @@
-package repository;
+package co.edu.cesde.ga.repository;
 import co.edu.cesde.ga.model.Teacher;
 import java.util.List;
-public interface teacherRepository {
+public interface TeacherRepository {
 
 
 

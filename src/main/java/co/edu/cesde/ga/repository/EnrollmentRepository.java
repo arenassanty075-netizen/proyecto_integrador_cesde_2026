@@ -1,4 +1,4 @@
-package repository;
+package co.edu.cesde.ga.repository;
 
 import co.edu.cesde.ga.model.Enrollments;
 import java.util.List;
