@@ -1,19 +1,72 @@
 package co.edu.cesde.ga.model;
 
-public class Teacher  extends Person{
-    public Teacher() {
+public class Teacher {
+
+    private int id; // Este es el ID
+    private String firstName;
+    private String lastName;
+    private String documentNumber;
+    private String status;
+
+    // Constructor
+    public Teacher(int id, String firstName, String lastName, String documentNumber, String status) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.documentNumber = documentNumber;
+        this.status = status;
     }
 
-    public Teacher(Long userId, String code, String documentNumber, String firstName, String lastName, String status) {
-        super(userId, code, documentNumber, firstName, lastName, status);
+    // Getters y Setters
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDocumentNumber() {
+        return documentNumber;
+    }
+
+    public void setDocumentNumber(String documentNumber) {
+        this.documentNumber = documentNumber;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    // Método para mostrar el objeto en consola
     @Override
-    public String getRole() {
-        return "=== TEACHER INFO ===\n" +
-                "ID: " + getUserId() + "\n" +
-                "Código: " + getCode() + "\n" +
-                "Documento: " + getDocumentNumber() + "\n" +
-                "Nombre: " + getFirstName() + " " + getLastName() + "\n" +
-                "Estado: " + getStatus();
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", documentNumber='" + documentNumber + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
