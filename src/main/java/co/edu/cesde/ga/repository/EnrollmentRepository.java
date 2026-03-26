@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface EnrollmentRepository {
 
+<<<<<<< HEAD
     Enrollments update(Enrollments enrollment); // crear o actualizar
 
     List<Enrollments> findAll(); // listar todos
@@ -18,4 +19,17 @@ public interface EnrollmentRepository {
     List<Enrollments> findByPeriodId(int periodId); // 🔥 importante según tu tabla
 
     void delete(int enrollmentId); // eliminar
+=======
+    Enrollments create(Enrollments enrollment);
+
+    List<Enrollments> findAll();
+
+    Enrollments findById(long enrollmentId);
+
+    boolean delete(long enrollmentId);
+
+    int count();
+
+    boolean update(Enrollments enrollment);
+>>>>>>> 4fe2b9a5301e9cd6682c1fabce1d2db4bebdc293
 }
