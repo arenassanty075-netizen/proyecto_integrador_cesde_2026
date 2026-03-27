@@ -2,21 +2,21 @@ package co.edu.cesde.ga.model;
 
 public class Programs {
 
-    private int programId;
+    private long programId;
     private String code;
     private String name;
 
-    public Programs(int programId, String code, String name) {
+    public Programs(long programId, String code, String name) {
         this.programId = programId;
         this.code = code;
         this.name = name;
     }
 
-    public int getProgramId() {
-        return programId;
+    public long getProgramId() {
+        return  programId;
     }
 
-    public void setProgramId(int programId) {
+    public void setProgramId(long programId) {
         this.programId = programId;
     }
 

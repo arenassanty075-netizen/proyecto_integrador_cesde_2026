@@ -2,47 +2,52 @@ package co.edu.cesde.ga.model;
 
 public class Period {
 
-    private int id;
+    private long periodId;
     private String name;
     private String startDate;
     private String endDate;
 
+    // Constructor vacío
+    public Period() {}
 
-    public Period(int id, String name, String startDate, String endDate) {
-        this.id = id;
+    // Constructor con parámetros
+    public Period(long periodId, String name, String startDate, String endDate) {
+        this.periodId = periodId;
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-
-    public int getId() {
-        return id;
+    // Getter y setter para periodId
+    public long getPeriodId() {
+        return periodId;
     }
 
+    public void setPeriodId(long periodId) {
+        this.periodId = periodId;
+    }
+
+    // Getter y setter para name
     public String getName() {
         return name;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    // Getter y setter para startDate
+    public String getStartDate() {
+        return startDate;
+    }
+
     public void setStartDate(String startDate) {
         this.startDate = startDate;
+    }
+
+    // Getter y setter para endDate
+    public String getEndDate() {
+        return endDate;
     }
 
     public void setEndDate(String endDate) {
