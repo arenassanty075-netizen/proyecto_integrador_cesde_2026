@@ -15,16 +15,16 @@ public interface TeacherRepository {
     List<Teacher> findAll();
 
     // Buscar por id
-    Teacher findById(int id);
+    Teacher findById(Long id);
 
     // Buscar por nombre
     Teacher findByName(String name);
 
     // Validar si existe por id
-    boolean existsById(int id);
+    boolean existsById(Long id);
 
     // Eliminar por id
-    boolean delete(int id);
+    boolean delete(Long id);
 
     // Contar registros
     int count();
