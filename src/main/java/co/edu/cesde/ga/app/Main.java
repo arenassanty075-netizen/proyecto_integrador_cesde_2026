@@ -58,6 +58,17 @@ public class Main {
         System.out.println("Status: " + teacher.getStatus());
 
         Student student2 = new Student(2L,"23456","15423969" , "Banesa" , "Quintero" ,"Active", "24/02/1996");
+        //USERS & ROLES
+
+        co.edu.cesde.ga.model.User user = new co.edu.cesde.ga.model.User(1, "miguel", "miguel@mail.com", "123", "activo", "2026");
+        co.edu.cesde.ga.model.Role role = new co.edu.cesde.ga.model.Role(1, "admin", "Administrador");
+
+        co.edu.cesde.ga.model.UserRole userRole = new co.edu.cesde.ga.model.UserRole(user.getUserId(), role.getRoleId());
+
+        System.out.println("\n=== USERS & ROLES ===");
+        System.out.println("Usuario: " + user.getUsername());
+        System.out.println("Rol: " + role.getName());
+        System.out.println("Relación: " + userRole.getUserId() + " - " + userRole.getRoleId());
 
 
 
