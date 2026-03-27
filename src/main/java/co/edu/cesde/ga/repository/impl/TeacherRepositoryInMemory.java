@@ -8,37 +8,65 @@ import java.util.List;
 
 public class TeacherRepositoryInMemory implements TeacherRepository {
 
-    private final List<Teacher> teachers = new ArrayList<>();
-    private int nextId = 1; // Para asignar IDs automáticamente
+    private List<Teacher> teachers;
+    private long nextTeacherId;
+
+    public TeacherRepositoryInMemory() {
+        this.teachers = new ArrayList<>();
+        this.nextTeacherId = 1L;
+    }
 
     @Override
     public Teacher create(Teacher teacher) {
-        teacher.setId(nextId++);
+        if (teacher == null) {
+            return null;
+        }
+
+        if (existsByDocumentNumber(teacher.getDocumentNumber())) {
+            return null;
+        }
+
+        teacher.setTeacherId(nextTeacherId++);
         teachers.add(teacher);
         return teacher;
     }
 
-    @Override
-    public Teacher update(Teacher teacher) {
-        for (int i = 0; i < teachers.size(); i++) {
-            if (teachers.get(i).getId() == teacher.getId()) {
-                teachers.set(i, teacher);
+    // 🔥 VALIDAR SI EXISTE POR DOCUMENTO
+    public boolean existsByDocumentNumber(String documentNumber) {
+        if (documentNumber == null || documentNumber.isBlank()) {
+            return false;
+        }
+        return findByDocumentNumber(documentNumber) != null;
+    }
+
+    // 🔥 BUSCAR POR DOCUMENTO
+    public Teacher findByDocumentNumber(String documentNumber) {
+        if (documentNumber == null || documentNumber.isBlank()) {
+            return null;
+        }
+
+        for (Teacher teacher : teachers) {
+            if (documentNumber.equals(teacher.getDocumentNumber())) {
                 return teacher;
             }
         }
-        return null; // Si no se encuentra el ID
+        return null;
     }
 
     @Override
     public List<Teacher> findAll() {
-        return new ArrayList<>(teachers); // Devolver copia para no modificar la lista original
+        return new ArrayList<>(teachers);
     }
 
     @Override
-    public Teacher findById(int id) {
-        for (Teacher t : teachers) {
-            if (t.getId() == id) {
-                return t;
+    public Teacher findById(Long id) {
+        if (id == null || id <= 0) {
+            return null;
+        }
+
+        for (Teacher teacher : teachers) {
+            if (id.equals(teacher.getUserId())) {
+                return teacher;
             }
         }
         return null;
@@ -46,26 +74,47 @@ public class TeacherRepositoryInMemory implements TeacherRepository {
 
     @Override
     public Teacher findByName(String name) {
-        for (Teacher t : teachers) {
-            if (t.getFirstName().equalsIgnoreCase(name) || t.getLastName().equalsIgnoreCase(name)) {
-                return t;
+        if (name == null || name.isBlank()) {
+            return null;
+        }
+
+        for (Teacher teacher : teachers) {
+            if (name.equalsIgnoreCase(teacher.getFirstName())) {
+                return teacher;
             }
         }
         return null;
     }
 
     @Override
-    public boolean existsById(int id) {
+    public boolean existsById(Long id) {
         return findById(id) != null;
     }
 
     @Override
-    public boolean delete(int id) {
-        return teachers.removeIf(t -> t.getId() == id);
+    public boolean delete(Long id) {
+        Teacher teacher = findById(id);
+        if (teacher == null) return false;
+
+        teachers.remove(teacher);
+        return true;
     }
 
     @Override
     public int count() {
         return teachers.size();
+    }
+
+    @Override
+    public Teacher update(Teacher updatedTeacher) {
+        if (updatedTeacher == null) return null;
+
+        for (int i = 0; i < teachers.size(); i++) {
+            if (updatedTeacher.getTeacherId() == teachers.get(i).getTeacherId()) {
+                teachers.set(i, updatedTeacher);
+                return updatedTeacher;
+            }
+        }
+        return null;
     }
 }
