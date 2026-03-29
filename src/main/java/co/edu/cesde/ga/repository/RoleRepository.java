@@ -7,11 +7,13 @@ public interface RoleRepository {
 
     Role create(Role role);
 
-    boolean existsById(long roleId);
+    boolean existsByName(String name);
 
-    Role findById(long roleId);
+    Role findByName(String name);
 
     List<Role> findAll();
+
+    Role findById(long roleId);
 
     boolean delete(long roleId);
 

@@ -23,4 +23,7 @@ public class Role {
     public String getDescription() {
         return description;
     }
+
+    public void setRoleId(long l) {
+    }
 }

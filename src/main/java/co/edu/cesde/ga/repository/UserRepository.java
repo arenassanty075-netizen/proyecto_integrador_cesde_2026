@@ -7,11 +7,15 @@ public interface UserRepository {
 
     User create(User user);
 
-    boolean existsById(long userId);
+    boolean existsByEmail(String email);
 
-    User findById(long userId);
+    User findByEmail(String email);
+
+    User findByUsername(String username);
 
     List<User> findAll();
+
+    User findById(long userId);
 
     boolean delete(long userId);
 

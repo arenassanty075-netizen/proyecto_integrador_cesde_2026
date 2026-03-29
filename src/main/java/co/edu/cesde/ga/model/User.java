@@ -41,4 +41,7 @@ public class User {
     public String getCreatedAt() {
         return createdAt;
     }
+
+    public void setUserId(long l) {
+    }
 }
