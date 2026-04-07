@@ -9,7 +9,7 @@ import java.util.List;
 public class StudentRepositoryInMemory implements StudentRepository {
 
     private List<Student> students;
-    private long nextStudentId;
+    private Long nextStudentId;
 
     public StudentRepositoryInMemory(){
         this.students = new ArrayList<>();
@@ -17,7 +17,7 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public Student create(Student student) {
+    public  Student create(Student student) {
         if (student == null) {
             return null;
         }
