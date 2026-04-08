@@ -14,13 +14,17 @@ public class Student extends Person {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.birthDate = birthDate;
     }
+    @Override
+    public String getRole() {
+        return "Student";
+    }
 
 
-    public long getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
@@ -33,7 +37,7 @@ public class Student extends Person {
     }
 
     @Override
-    public String getRole() {
+    public String toString() {
         return "=== STUDENT INFO ===\n" +
                 "ID: " + getUserId() + "\n" +
                 "Código: " + getCode() + "\n" +

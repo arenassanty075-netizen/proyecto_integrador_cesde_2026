@@ -69,4 +69,14 @@ public abstract class Person {
     }
 
     public abstract String getRole();
+
+    @Override
+    public String toString() {
+        return "=== STUDENT INFO ===\n" +
+                "ID: " + getUserId() + "\n" +
+                "Código: " + getCode() + "\n" +
+                "Documento: " + getDocumentNumber() + "\n" +
+                "Nombre: " + getFirstName() + " " + getLastName() + "\n" +
+                "Estado: " + getStatus();
+    }
 }

@@ -13,9 +13,10 @@ public interface StudentRepository {
 
     List<Student> findAll();
 
-    Student findById(long studentId);
+    Student findById(Long studentId);
 
-    boolean delete(long studentId);
+    boolean delete(Long studentId);
+
 
     int count();
 

@@ -16,6 +16,8 @@ public class StudentRepositoryInMemory implements StudentRepository {
         this.nextStudentId = 1L;
     }
 
+
+
     @Override
     public Student create(Student student) {
         if (student == null) {
@@ -59,7 +61,7 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public Student findById(long studentId) {
+    public Student findById(Long studentId) {
         if (studentId <= 0 ){
             return null;
         }
@@ -73,7 +75,7 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public boolean delete(long studentId) {
+    public boolean delete(Long studentId) {
         Student student = findById(studentId);
         if (student == null) return false;
 
