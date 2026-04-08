@@ -6,11 +6,11 @@ import co.edu.cesde.ga.repository.StudentRepository;
 
 import java.util.List;
 
-public class StudentServiveImpl implements StudentService {
+public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
 
-    public StudentServiveImpl(StudentRepository studentRepository) {
+    public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
