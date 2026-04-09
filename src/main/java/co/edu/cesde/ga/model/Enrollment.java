@@ -2,17 +2,17 @@ package co.edu.cesde.ga.model;
 
 import java.time.LocalDateTime;
 
-public class Enrollments {
-    private long enrollmentId;
-    private long studentId;
-    private long groupId;
-    private long periodId;
+public class Enrollment {
+    private Long enrollmentId;
+    private Long studentId;
+    private Long groupId;
+    private Long periodId;
     private String status;
     private LocalDateTime enrolledAt;
 
-    public  Enrollments() {}
+    public Enrollment() {}
 
-    public Enrollments(Long enrollmentId, Long studentId, Long groupId, Long periodId, String status, LocalDateTime enrolledAt) {
+    public Enrollment(Long enrollmentId, Long studentId, Long groupId, Long periodId, String status, LocalDateTime enrolledAt) {
         this.enrollmentId = enrollmentId;
         this.studentId = studentId;
         this.groupId = groupId;
@@ -22,19 +22,19 @@ public class Enrollments {
 
     }
 
-    public long getEnrollmentId() {
+    public Long getEnrollmentId() {
         return enrollmentId;
     }
 
-    public long getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public long getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public long getPeriodId() {
+    public Long getPeriodId() {
         return periodId;
     }
 
@@ -46,19 +46,19 @@ public class Enrollments {
         return enrolledAt;
     }
 
-    public void setEnrollmentId(long enrollmentId) {
+    public void setEnrollmentId(Long enrollmentId) {
         this.enrollmentId = enrollmentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
-    public void setPeriodId(long periodId) {
+    public void setPeriodId(Long periodId) {
         this.periodId = periodId;
     }
 

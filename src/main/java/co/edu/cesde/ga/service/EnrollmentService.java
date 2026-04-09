@@ -1,12 +1,10 @@
-package co.edu.cesde.ga.repository;
-
+package co.edu.cesde.ga.service;
 
 import co.edu.cesde.ga.model.Enrollment;
 
 import java.util.List;
 
-public interface EnrollmentRepository {
-
+public interface EnrollmentService {
     Enrollment create(Enrollment enrollment);
 
     boolean existsById(Long enrollmentId);
@@ -16,8 +14,6 @@ public interface EnrollmentRepository {
     List<Enrollment> findAll();
 
     boolean delete(Long enrollmentId);
-
-    int count();
 
     boolean update(Enrollment enrollment);
 }
