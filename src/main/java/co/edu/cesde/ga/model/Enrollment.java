@@ -69,4 +69,15 @@ public class Enrollment {
     public void setEnrolledAt(LocalDateTime enrolledAt) {
         this.enrolledAt = enrolledAt;
     }
+
+    @Override
+    public String toString() {
+        return "=== ENROLLMENT INFO ===\n" +
+                "ID: " + getEnrollmentId() + "\n" +
+                "Student ID: " + getStudentId() + "\n" +
+                "Group ID: " + getGroupId() + "\n" +
+                "Period ID: " + getPeriodId() + "\n" +
+                "Fecha: " + getEnrolledAt() + "\n" +
+                "Estado: " + getStatus();
+    }
 }

@@ -2,7 +2,7 @@ package co.edu.cesde.ga.model;
 
 public class Period {
 
-    private long periodId;
+    private Long periodId;
     private String name;
     private String startDate;
     private String endDate;
@@ -11,7 +11,7 @@ public class Period {
     public Period() {}
 
     // Constructor con parámetros
-    public Period(long periodId, String name, String startDate, String endDate) {
+    public Period(Long periodId, String name, String startDate, String endDate) {
         this.periodId = periodId;
         this.name = name;
         this.startDate = startDate;
@@ -19,7 +19,7 @@ public class Period {
     }
 
     // Getter y setter para periodId
-    public long getPeriodId() {
+    public Long getPeriodId() {
         return periodId;
     }
 

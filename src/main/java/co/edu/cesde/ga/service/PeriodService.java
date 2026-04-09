@@ -1,21 +1,18 @@
-package co.edu.cesde.ga.repository;
+package co.edu.cesde.ga.service;
 
 import co.edu.cesde.ga.model.Period;
 import java.util.List;
 
-public interface PeriodRepository {
-
+public interface PeriodService {
     Period create(Period period);
 
     List<Period> findAll();
 
     Period findById(Long periodId);
 
-    boolean delete(Long periodId);
-
-    int count();
-
     boolean update(Period period);
+
+    boolean delete(Long periodId);
 
     boolean existsById(Long periodId);
 }

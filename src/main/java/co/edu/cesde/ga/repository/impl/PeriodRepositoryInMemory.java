@@ -21,14 +21,26 @@ public class PeriodRepositoryInMemory implements PeriodRepository {
         }
         return null; // ya existe
     }
+    @Override
+    public boolean existsById(Long periodId) {
+        if (periodId == null || periodId <= 0) {
+            return false;
+        }
 
+        for (Period period : periods) {
+            if (period.getPeriodId().equals(periodId)) {
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public List<Period> findAll() {
         return new ArrayList<>(periods); // devolvemos copia
     }
 
     @Override
-    public Period findById(long periodId) {
+    public Period findById(Long periodId) {
         for (Period p : periods) {
             if (p.getPeriodId() == periodId) {
                 return p;
@@ -38,7 +50,7 @@ public class PeriodRepositoryInMemory implements PeriodRepository {
     }
 
     @Override
-    public boolean delete(long periodId) {
+    public boolean delete(Long periodId) {
         return periods.removeIf(p -> p.getPeriodId() == periodId);
     }
 
