@@ -28,6 +28,18 @@ public class GroupRepositoryInMemory implements GroupRepository {
     }
 
     @Override
+    public boolean existsById(Long groupsId) {
+        if (groupsId == null) return false;
+
+        for (Groups group : groups) {
+            if (groupsId.equals(group.getGroupId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public List<Groups> findAll() {
         return new ArrayList<>(groups);
     }
@@ -67,7 +79,7 @@ public class GroupRepositoryInMemory implements GroupRepository {
         if (updatedGroup == null) return false;
 
         for (int i = 0; i < groups.size(); i++) {
-            if (updatedGroup.getGroupId() == groups.get(i).getGroupId()) {
+            if (updatedGroup.getGroupId().equals(groups.get(i).getGroupId())) {
                 groups.set(i, updatedGroup);
                 return true;
             }
