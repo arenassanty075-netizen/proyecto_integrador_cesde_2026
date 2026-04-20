@@ -2,7 +2,7 @@ package co.edu.cesde.ga.model;
 
 public class Student extends Person {
 
-    private long studentId;
+    private Long studentId; // 🔥 corregido (antes era long)
     private String birthDate;
 
     public Student() {
@@ -14,11 +14,11 @@ public class Student extends Person {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.birthDate = birthDate;
     }
+
     @Override
     public String getRole() {
         return "Student";
     }
-
 
     public Long getStudentId() {
         return studentId;
@@ -39,7 +39,7 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "=== STUDENT INFO ===\n" +
-                "ID: " + getUserId() + "\n" +
+                "ID: " + getStudentId() + "\n" + // 🔥 corregido (antes getUserId)
                 "Código: " + getCode() + "\n" +
                 "Documento: " + getDocumentNumber() + "\n" +
                 "Nombre: " + getFirstName() + " " + getLastName() + "\n" +

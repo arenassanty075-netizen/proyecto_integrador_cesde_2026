@@ -29,12 +29,12 @@ public class GroupSubjectsRepositoryInMemory implements GroupSubjectsRepository 
     }
 
     @Override
-    public boolean exists(long groupId, String subjectId) {
+    public boolean exists(Long groupId, String subjectId) {
         return findByIds(groupId, subjectId) != null;
     }
 
     @Override
-    public GroupSubjects findByIds(long groupId, String subjectId) {
+    public GroupSubjects findByIds(Long groupId, String subjectId) {
         if (subjectId == null || subjectId.isBlank()) {
             return null;
         }
@@ -54,7 +54,7 @@ public class GroupSubjectsRepositoryInMemory implements GroupSubjectsRepository 
     }
 
     @Override
-    public boolean delete(long groupId, String subjectId) {
+    public boolean delete(Long groupId, String subjectId) {
         GroupSubjects gs = findByIds(groupId, subjectId);
         if (gs == null) return false;
 

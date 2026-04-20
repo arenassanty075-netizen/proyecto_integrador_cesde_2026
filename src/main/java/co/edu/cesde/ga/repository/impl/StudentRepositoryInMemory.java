@@ -9,7 +9,7 @@ import java.util.List;
 public class StudentRepositoryInMemory implements StudentRepository {
 
     private List<Student> students;
-    private Long nextStudentId;
+    private long nextStudentId;
 
     public StudentRepositoryInMemory(){
         this.students = new ArrayList<>();

@@ -9,7 +9,7 @@ import java.util.List;
 public class GroupRepositoryInMemory implements GroupRepository {
 
     private List<Groups> groups;
-    private long nextGroupId;
+    private Long nextGroupId;
 
     public GroupRepositoryInMemory() {
         this.groups = new ArrayList<>();

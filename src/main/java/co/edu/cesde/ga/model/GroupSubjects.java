@@ -4,13 +4,13 @@ public class GroupSubjects {
 
     private long groupSubjectId;
     private long groupId;
-    private String subjectId; // 🔥 CAMBIO AQUÍ
+    private String subjectId;
     private long teacherId;
 
     public GroupSubjects() {
     }
 
-    public GroupSubjects(long groupSubjectId, long groupId, String subjectId, long teacherId) {
+    public GroupSubjects(Long groupSubjectId, Long groupId, String subjectId, Long teacherId) {
         this.groupSubjectId = groupSubjectId;
         this.groupId = groupId;
         this.subjectId = subjectId;
@@ -21,15 +21,15 @@ public class GroupSubjects {
         return groupSubjectId;
     }
 
-    public void setGroupSubjectId(long groupSubjectId) {
+    public void setGroupSubjectId(Long groupSubjectId) {
         this.groupSubjectId = groupSubjectId;
     }
 
-    public long getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(long groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
@@ -41,11 +41,11 @@ public class GroupSubjects {
         this.subjectId = subjectId;
     }
 
-    public long getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(long teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 }

@@ -7,13 +7,13 @@ public interface GroupSubjectsRepository {
 
     GroupSubjects create(GroupSubjects groupSubject);
 
-    boolean exists(long groupId, String subjectId);
+    boolean exists(Long groupId, String subjectId);
 
-    GroupSubjects findByIds(long groupId, String subjectId);
+    GroupSubjects findByIds(Long groupId, String subjectId);
 
     List<GroupSubjects> findAll();
 
-    boolean delete(long groupId, String subjectId);
+    boolean delete(Long groupId, String subjectId);
 
     int count();
 
