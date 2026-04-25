@@ -35,4 +35,9 @@ public class Programs {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Program { programId=" + programId + ", code=" + code + ", name=" + name + " }";
+    }
 }

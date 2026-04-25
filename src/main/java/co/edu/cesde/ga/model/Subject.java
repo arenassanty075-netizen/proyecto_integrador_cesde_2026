@@ -32,4 +32,9 @@ public class Subject {
 
     public long getProgramId() { return programId; }
     public void setProgramId(long programId) { this.programId = programId; }
+
+    @Override
+    public String toString() {
+        return "Subject { subjectId=" + subjectId + ", code=" + code + ", name=" + name + ", credits=" + credits + ", programId=" + programId + " }";
+    }
 }

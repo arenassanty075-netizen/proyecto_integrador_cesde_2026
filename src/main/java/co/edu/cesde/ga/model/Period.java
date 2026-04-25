@@ -53,4 +53,9 @@ public class Period {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "Period { periodId=" + periodId + ", name=" + name + ", startDate=" + startDate + ", endDate=" + endDate + " }";
+    }
 }

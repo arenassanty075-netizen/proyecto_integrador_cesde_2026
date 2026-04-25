@@ -48,4 +48,8 @@ public class GroupSubjects {
     public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
+    @Override
+    public String toString() {
+        return "GroupSubjects { groupSubjectId=" + groupSubjectId + ", groupId=" + groupId + ", subjectId=" + subjectId + ", teacherId=" + teacherId + " }";
+    }
 }

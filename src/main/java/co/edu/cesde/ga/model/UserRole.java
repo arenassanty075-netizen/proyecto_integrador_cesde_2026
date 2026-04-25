@@ -17,4 +17,9 @@ public class UserRole {
     public int getRoleId() {
         return roleId;
     }
+
+    @Override
+    public String toString() {
+        return "UserRole { userId=" + userId + ", roleId=" + roleId + " }";
+    }
 }
