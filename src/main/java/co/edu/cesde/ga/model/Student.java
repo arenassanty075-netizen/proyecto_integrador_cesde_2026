@@ -2,7 +2,7 @@ package co.edu.cesde.ga.model;
 
 public class Student extends Person {
 
-    private Long studentId; // 🔥 corregido (antes era long)
+    private Long studentId;
     private String birthDate;
 
     public Student() {
