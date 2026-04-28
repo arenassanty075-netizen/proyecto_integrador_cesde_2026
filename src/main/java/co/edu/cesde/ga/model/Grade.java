@@ -32,4 +32,9 @@ public class Grade {
 
     public String getObservation() { return observation; }
     public void setObservation(String observation) { this.observation = observation; }
+
+    @Override
+    public String toString() {
+        return "Grade { gradeId=" + gradeId + ", groupSubjectId=" + groupSubjectId + ", studentId=" + studentId + ", finalScore=" + finalScore + ", observation=" + observation + " }";
+    }
 }

@@ -65,7 +65,7 @@ public class TeacherRepositoryInMemory implements TeacherRepository {
         }
 
         for (Teacher teacher : teachers) {
-            if (id.equals(teacher.getUserId())) {
+            if (id.equals(teacher.getTeacherId())) {
                 return teacher;
             }
         }
