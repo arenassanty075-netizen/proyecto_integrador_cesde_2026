@@ -9,7 +9,7 @@ import java.util.List;
 public class UserRepositoryInMemory implements UserRepository {
 
     private List<User> users;
-    private long nextUserId;
+    private Long nextUserId;
 
     public UserRepositoryInMemory() {
         this.users = new ArrayList<>();
@@ -59,7 +59,7 @@ public class UserRepositoryInMemory implements UserRepository {
     }
 
     @Override
-    public User findById(long userId) {
+    public User findById(Long userId) {
         if (userId <= 0) return null;
 
         for (User user : users) {
@@ -69,7 +69,7 @@ public class UserRepositoryInMemory implements UserRepository {
     }
 
     @Override
-    public boolean delete(long userId) {
+    public boolean delete(Long userId) {
         User user = findById(userId);
         if (user == null) return false;
 

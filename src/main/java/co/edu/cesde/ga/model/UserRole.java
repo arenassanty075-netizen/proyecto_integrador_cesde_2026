@@ -2,19 +2,19 @@ package co.edu.cesde.ga.model;
 
 public class UserRole {
 
-    private int userId;
-    private int roleId;
+    private Long userId;
+    private Long roleId;
 
-    public UserRole(int userId, int roleId) {
+    public UserRole(Long userId, Long roleId) {
         this.userId = userId;
         this.roleId = roleId;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public int getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 

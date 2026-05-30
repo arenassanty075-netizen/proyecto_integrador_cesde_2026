@@ -1,5 +1,8 @@
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.model.User;
 import co.edu.cesde.ga.repository.UserRepository;
 import co.edu.cesde.ga.service.UserService;
@@ -15,44 +18,109 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
-        if (isInvalidUser(user)) return null;
-        if (userRepository.existsByEmail(user.getEmail())) return null;
+
+        if (user == null) {
+            throw new InvalidDataException("El usuario no puede ser nulo");
+        }
+
+        if (isInvalidUser(user)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new DuplicateException("Ya existe un usuario con ese email");
+        }
+
         return userRepository.create(user);
     }
 
     @Override
     public boolean update(User user) {
-        if (isInvalidUser(user) || user.getUserId() <= 0) return false;
+
+        if (user == null || user.getUserId() == null || user.getUserId() <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (userRepository.findById(user.getUserId()) == null) {
+            throw new NotFoundException("Usuario no encontrado");
+        }
+
+        if (isInvalidUser(user)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
         return userRepository.update(user);
     }
 
     @Override
-    public boolean delete(long userId) {
-        if (userId <= 0) return false;
+    public boolean delete(Long userId) {
+
+        if (userId == null || userId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (userRepository.findById(userId) == null) {
+            throw new NotFoundException("Usuario no encontrado");
+        }
+
         return userRepository.delete(userId);
     }
 
     @Override
-    public User findById(long userId) {
-        if (userId <= 0) return null;
-        return userRepository.findById(userId);
+    public User findById(Long userId) {
+
+        if (userId == null || userId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        User user = userRepository.findById(userId);
+
+        if (user == null) {
+            throw new NotFoundException("Usuario no encontrado");
+        }
+
+        return user;
     }
 
     @Override
     public User findByEmail(String email) {
-        if (email == null || email.isBlank()) return null;
-        return userRepository.findByEmail(email);
+
+        if (!isNotBlank(email)) {
+            throw new InvalidDataException("Email inválido");
+        }
+
+        User user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            throw new NotFoundException("Usuario no encontrado");
+        }
+
+        return user;
     }
 
     @Override
     public User findByUsername(String username) {
-        if (username == null || username.isBlank()) return null;
-        return userRepository.findByUsername(username);
+
+        if (!isNotBlank(username)) {
+            throw new InvalidDataException("Username inválido");
+        }
+
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new NotFoundException("Usuario no encontrado");
+        }
+
+        return user;
     }
 
     @Override
     public boolean existsByEmail(String email) {
-        if (email == null || email.isBlank()) return false;
+
+        if (!isNotBlank(email)) {
+            throw new InvalidDataException("Email inválido");
+        }
+
         return userRepository.existsByEmail(email);
     }
 

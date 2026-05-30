@@ -1,5 +1,8 @@
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.model.Programs;
 import co.edu.cesde.ga.repository.ProgramsRepository;
 import co.edu.cesde.ga.service.ProgramService;
@@ -15,39 +18,95 @@ public class ProgramServiceImpl implements ProgramService {
 
     @Override
     public Programs create(Programs program) {
-        if (isInvalidProgram(program)) return null;
-        if (programsRepository.existsByCode(program.getCode())) return null;
+
+        if (program == null) {
+            throw new InvalidDataException("El programa no puede ser nulo");
+        }
+
+        if (isInvalidProgram(program)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (programsRepository.existsByCode(program.getCode())) {
+            throw new DuplicateException("Ya existe un programa con ese código");
+        }
+
         return programsRepository.create(program);
     }
 
     @Override
     public boolean update(Programs program) {
-        if (isInvalidProgram(program) || program.getProgramId() <= 0L) return false;
-        if (programsRepository.findById(program.getProgramId()) == null) return false;
+
+        if (program == null || program.getProgramId() <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (programsRepository.findById(program.getProgramId()) == null) {
+            throw new NotFoundException("Programa no encontrado");
+        }
+
+        if (isInvalidProgram(program)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
         return programsRepository.update(program);
     }
 
     @Override
     public boolean delete(Long programId) {
-        if (programId == null || programId <= 0L) return false;
+
+        if (programId == null || programId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (programsRepository.findById(programId) == null) {
+            throw new NotFoundException("Programa no encontrado");
+        }
+
         return programsRepository.delete(programId);
     }
 
+
     @Override
     public Programs findById(Long programId) {
-        if (programId == null || programId <= 0L) return null;
-        return programsRepository.findById(programId);
+
+        if (programId == null || programId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        Programs program = programsRepository.findById(programId);
+
+        if (program == null) {
+            throw new NotFoundException("Programa no encontrado");
+        }
+
+        return program;
     }
 
     @Override
     public Programs findByCode(String code) {
-        if (code == null || code.isBlank()) return null;
-        return programsRepository.findByCode(code);
+
+        if (!isNotBlank(code)) {
+            throw new InvalidDataException("Código inválido");
+        }
+
+        Programs program = programsRepository.findByCode(code);
+
+        if (program == null) {
+            throw new NotFoundException("Programa no encontrado");
+        }
+
+        return program;
     }
+
 
     @Override
     public boolean existsByCode(String code) {
-        if (code == null || code.isBlank()) return false;
+
+        if (!isNotBlank(code)) {
+            throw new InvalidDataException("Código inválido");
+        }
+
         return programsRepository.existsByCode(code);
     }
 
@@ -57,7 +116,9 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     private boolean isInvalidProgram(Programs program) {
+
         return program == null
+                || program.getProgramId() <= 0L
                 || !isNotBlank(program.getCode())
                 || !isNotBlank(program.getName());
     }

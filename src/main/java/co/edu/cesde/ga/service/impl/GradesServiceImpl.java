@@ -1,6 +1,9 @@
 
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.model.Grade;
 import co.edu.cesde.ga.repository.GradesRepository;
 import co.edu.cesde.ga.service.GradesService;
@@ -16,26 +19,72 @@ public class GradesServiceImpl implements GradesService {
 
     @Override
     public Grade create(Grade grade) {
-        if (isInvalidGrade(grade)) return null;
+
+        if (grade == null) {
+            throw new InvalidDataException("La nota no puede ser nula");
+        }
+
+        if (isInvalidGrade(grade)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (grade.getFinalScore() < 0 || grade.getFinalScore() > 5) {
+            throw new InvalidDataException("La nota debe estar entre 0 y 5");
+        }
+
         return gradesRepository.create(grade);
     }
 
     @Override
     public boolean update(Grade grade) {
-        if (isInvalidGrade(grade) || grade.getGradeId() <= 0L) return false;
+
+        if (grade == null || grade.getGradeId() <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (!gradesRepository.existsById(grade.getGradeId())) {
+            throw new NotFoundException("Nota no encontrada");
+        }
+
+        if (isInvalidGrade(grade)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (grade.getFinalScore() < 0 || grade.getFinalScore() > 5) {
+            throw new InvalidDataException("La nota debe estar entre 0 y 5");
+        }
+
         return gradesRepository.update(grade);
     }
 
     @Override
     public boolean delete(long gradeId) {
-        if (gradeId <= 0L) return false;
+
+        if (gradeId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (!gradesRepository.existsById(gradeId)) {
+            throw new NotFoundException("Nota no encontrada");
+        }
+
         return gradesRepository.delete(gradeId);
     }
 
     @Override
     public Grade findById(long gradeId) {
-        if (gradeId <= 0L) return null;
-        return gradesRepository.findById(gradeId);
+
+        if (gradeId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        Grade grade = gradesRepository.findById(gradeId);
+
+        if (grade == null) {
+            throw new NotFoundException("Nota no encontrada");
+        }
+
+        return grade;
     }
 
     @Override
@@ -43,11 +92,12 @@ public class GradesServiceImpl implements GradesService {
         return gradesRepository.findAll();
     }
 
+
+
     private boolean isInvalidGrade(Grade grade) {
         return grade == null
                 || grade.getGroupSubjectId() <= 0L
                 || grade.getStudentId() <= 0L
-                || grade.getFinalScore() <= 0
                 || !isNotBlank(grade.getObservation());
     }
 

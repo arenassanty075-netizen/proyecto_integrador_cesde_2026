@@ -7,15 +7,15 @@ public interface UserRoleRepository {
 
     UserRole create(UserRole userRole);
 
-    boolean existsByUserIdAndRoleId(long userId, long roleId);
+    boolean existsByUserIdAndRoleId(Long userId, Long roleId);
 
-    List<UserRole> findByUserId(long userId);
+    List<UserRole> findByUserId(Long userId);
 
-    List<UserRole> findByRoleId(long roleId);
+    List<UserRole> findByRoleId(Long roleId);
 
     List<UserRole> findAll();
 
-    boolean delete(long userId, long roleId);
+    boolean delete(Long userId, Long roleId);
 
     int count();
 }

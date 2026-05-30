@@ -1,5 +1,8 @@
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.model.Role;
 import co.edu.cesde.ga.repository.RoleRepository;
 import co.edu.cesde.ga.service.RoleService;
@@ -13,50 +16,110 @@ public class RoleServiceImpl implements RoleService {
         this.roleRepository = roleRepository;
     }
 
+
     @Override
     public Role create(Role role) {
-        if (isInvalidRole(role)) return null;
-        if (roleRepository.existsByName(role.getName())) return null;
+
+        if (role == null) {
+            throw new InvalidDataException("El rol no puede ser nulo");
+        }
+
+        if (isInvalidRole(role)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (roleRepository.existsByName(role.getName())) {
+            throw new DuplicateException("Ya existe un rol con ese nombre");
+        }
+
         return roleRepository.create(role);
     }
 
     @Override
     public boolean update(Role role) {
-        if (isInvalidRole(role) || role.getRoleId() <= 0) return false;
+
+        if (role == null || role.getRoleId() <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (roleRepository.findById(role.getRoleId()) == null) {
+            throw new NotFoundException("Rol no encontrado");
+        }
+
+        if (isInvalidRole(role)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
         return roleRepository.update(role);
     }
 
+
     @Override
     public boolean delete(long roleId) {
-        if (roleId <= 0) return false;
+
+        if (roleId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        if (roleRepository.findById(roleId) == null) {
+            throw new NotFoundException("Rol no encontrado");
+        }
+
         return roleRepository.delete(roleId);
     }
 
+
     @Override
     public Role findById(long roleId) {
-        if (roleId <= 0) return null;
-        return roleRepository.findById(roleId);
+
+        if (roleId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        Role role = roleRepository.findById(roleId);
+
+        if (role == null) {
+            throw new NotFoundException("Rol no encontrado");
+        }
+
+        return role;
     }
 
     @Override
     public Role findByName(String name) {
-        if (name == null || name.isBlank()) return null;
-        return roleRepository.findByName(name);
+
+        if (!isNotBlank(name)) {
+            throw new InvalidDataException("Nombre inválido");
+        }
+
+        Role role = roleRepository.findByName(name);
+
+        if (role == null) {
+            throw new NotFoundException("Rol no encontrado");
+        }
+
+        return role;
     }
+
 
     @Override
     public boolean existsByName(String name) {
-        if (name == null || name.isBlank()) return false;
+
+        if (!isNotBlank(name)) {
+            throw new InvalidDataException("Nombre inválido");
+        }
+
         return roleRepository.existsByName(name);
     }
-
     @Override
     public List<Role> findAll() {
         return roleRepository.findAll();
     }
 
     private boolean isInvalidRole(Role role) {
+
         return role == null
+                || role.getRoleId() <= 0L
                 || !isNotBlank(role.getName())
                 || !isNotBlank(role.getDescription());
     }

@@ -41,7 +41,7 @@ public class Main {
         UserRepositoryInMemory userRepository = new UserRepositoryInMemory();
         UserServiceImpl userService = new UserServiceImpl(userRepository);
 
-        User user = new User(1, "sebas14737", "sebas@gmail.com", "pass123", "Activo", "2026-01-01");        userService.create(user);
+        User user = new User(1L, "sebas14737", "sebas@gmail.com", "pass123", "Activo", "2026-01-01");        userService.create(user);
         System.out.println("=== USUARIOS ===");
         System.out.println(userService.findAll());
 
@@ -49,7 +49,7 @@ public class Main {
         UserRoleRepositoryInMemory userRoleRepository = new UserRoleRepositoryInMemory();
         UserRoleServiceImpl userRoleService = new UserRoleServiceImpl(userRoleRepository);
 
-        UserRole userRole = new UserRole(1, 1);
+        UserRole userRole = new UserRole(1L, 1L);
         userRoleService.create(userRole);
         System.out.println("=== USER ROLES ===");
         System.out.println(userRoleService.findAll());
@@ -102,7 +102,7 @@ public class Main {
         EnrollmentRepositoryInMemory enrollmentRepository = new EnrollmentRepositoryInMemory();
         EnrollmentServiceImpl enrollmentService = new EnrollmentServiceImpl(enrollmentRepository);
 
-        Enrollment enrollment = new Enrollment(null, 1L, 1L, 1L, "Activo", LocalDateTime.now());
+        Enrollment enrollment = new Enrollment(1L, 1L, 1L, 1L, "Activo", LocalDateTime.now());
         enrollmentService.create(enrollment);
         System.out.println("=== MATRÍCULAS ===");
         System.out.println(enrollmentService.findAll());
@@ -111,7 +111,7 @@ public class Main {
         GradesRepositoryInMemory gradesRepository = new GradesRepositoryInMemory();
         GradesServiceImpl gradesService = new GradesServiceImpl(gradesRepository);
 
-        Grade grade = new Grade(1L, 1L, 1L, 45, "Buen desempeño");
+        Grade grade = new Grade(1L, 1L, 1L, 4, "Buen desempeño");
         gradesService.create(grade);
         System.out.println("=== NOTAS ===");
         System.out.println(gradesService.findAll());

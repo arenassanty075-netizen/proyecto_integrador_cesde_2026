@@ -25,13 +25,13 @@ public class UserRoleRepositoryInMemory implements UserRoleRepository {
     }
 
     @Override
-    public boolean existsByUserIdAndRoleId(long userId, long roleId) {
+    public boolean existsByUserIdAndRoleId(Long userId, Long roleId) {
         return findByUserId(userId).stream()
                 .anyMatch(ur -> ur.getRoleId() == roleId);
     }
 
     @Override
-    public List<UserRole> findByUserId(long userId) {
+    public List<UserRole> findByUserId(Long userId) {
         if (userId <= 0) return new ArrayList<>();
 
         List<UserRole> result = new ArrayList<>();
@@ -42,7 +42,7 @@ public class UserRoleRepositoryInMemory implements UserRoleRepository {
     }
 
     @Override
-    public List<UserRole> findByRoleId(long roleId) {
+    public List<UserRole> findByRoleId(Long roleId) {
         if (roleId <= 0) return new ArrayList<>();
 
         List<UserRole> result = new ArrayList<>();
@@ -58,7 +58,7 @@ public class UserRoleRepositoryInMemory implements UserRoleRepository {
     }
 
     @Override
-    public boolean delete(long userId, long roleId) {
+    public boolean delete(Long userId, Long roleId) {
         for (UserRole ur : userRoles) {
             if (ur.getUserId() == userId && ur.getRoleId() == roleId) {
                 userRoles.remove(ur);

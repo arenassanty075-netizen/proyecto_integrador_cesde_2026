@@ -1,5 +1,8 @@
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.model.Enrollment;
 import co.edu.cesde.ga.repository.EnrollmentRepository;
 import co.edu.cesde.ga.service.EnrollmentService;
@@ -15,39 +18,69 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
     @Override
     public Enrollment create(Enrollment enrollment) {
-        if (isInvalidEnrollment(enrollment) || enrollmentRepository.existsById(enrollment.getEnrollmentId())) {
-            return null;
+
+        if (enrollment == null) {
+            throw new InvalidDataException("La inscripción no puede ser nula");
         }
+
+        if (isInvalidEnrollment(enrollment)) {
+            throw new InvalidDataException("Datos de inscripción inválidos");
+        }
+
+        if (enrollmentRepository.existsById(enrollment.getEnrollmentId())) {
+            throw new DuplicateException("La inscripción ya existe");
+        }
+
         return enrollmentRepository.create(enrollment);
     }
 
     @Override
     public boolean update(Enrollment enrollment) {
-        if (isInvalidEnrollment(enrollment) || enrollment.getEnrollmentId() == null || enrollment.getEnrollmentId() <= 0L) {
-            return false;
+
+        if (enrollment == null || enrollment.getEnrollmentId() == null || enrollment.getEnrollmentId() <= 0L) {
+            throw new InvalidDataException("ID inválido");
         }
+
         if (!enrollmentRepository.existsById(enrollment.getEnrollmentId())) {
-            return false;
+            throw new NotFoundException("Inscripción no encontrada");
         }
+
+        if (isInvalidEnrollment(enrollment)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
         return enrollmentRepository.update(enrollment);
     }
 
     @Override
     public boolean delete(Long enrollmentId) {
+
         if (enrollmentId == null || enrollmentId <= 0L) {
-            return false;
+            throw new InvalidDataException("ID inválido");
         }
+
+        if (!enrollmentRepository.existsById(enrollmentId)) {
+            throw new NotFoundException("Inscripción no encontrada");
+        }
+
         return enrollmentRepository.delete(enrollmentId);
     }
 
     @Override
     public Enrollment findById(Long enrollmentId) {
-        if (enrollmentId == null || enrollmentId <= 0L) {
-            return null;
-        }
-        return enrollmentRepository.findById(enrollmentId);
-    }
 
+        if (enrollmentId == null || enrollmentId <= 0L) {
+            throw new InvalidDataException("ID inválido");
+        }
+
+        Enrollment enrollment = enrollmentRepository.findById(enrollmentId);
+
+        if (enrollment == null) {
+            throw new NotFoundException("Inscripción no encontrada");
+        }
+
+        return enrollment;
+    }
     @Override
     public List<Enrollment> findAll() {
         return enrollmentRepository.findAll();

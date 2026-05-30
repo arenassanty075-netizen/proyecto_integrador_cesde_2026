@@ -15,9 +15,9 @@ public interface UserRepository {
 
     List<User> findAll();
 
-    User findById(long userId);
+    User findById(Long userId);
 
-    boolean delete(long userId);
+    boolean delete(Long userId);
 
     int count();
 

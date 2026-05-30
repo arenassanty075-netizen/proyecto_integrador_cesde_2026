@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface UserRoleService {
     UserRole create(UserRole userRole);
-    boolean delete(long userId, long roleId);
-    boolean existsByUserIdAndRoleId(long userId, long roleId);
-    List<UserRole> findByUserId(long userId);
-    List<UserRole> findByRoleId(long roleId);
+    boolean delete(Long userId, Long roleId);
+    boolean existsByUserIdAndRoleId(Long userId, Long roleId);
+    List<UserRole> findByUserId(Long userId);
+    List<UserRole> findByRoleId(Long roleId);
     List<UserRole> findAll();
 }
