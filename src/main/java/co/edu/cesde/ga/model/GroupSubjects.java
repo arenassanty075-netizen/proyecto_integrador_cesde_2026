@@ -2,10 +2,10 @@ package co.edu.cesde.ga.model;
 
 public class GroupSubjects {
 
-    private long groupSubjectId;
-    private long groupId;
+    private Long groupSubjectId;
+    private Long groupId;
     private String subjectId;
-    private long teacherId;
+    private Long teacherId;
 
     public GroupSubjects() {
     }
