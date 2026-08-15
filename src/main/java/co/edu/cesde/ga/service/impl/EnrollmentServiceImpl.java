@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Enrollment;
-import co.edu.cesde.ga.repository.EnrollmentRepository;
-import co.edu.cesde.ga.service.EnrollmentService;
+import co.edu.cesde.ga.application.port.out.EnrollmentRepository;
+import co.edu.cesde.ga.application.port.in.EnrollmentService;
 import java.util.List;
 
 public class EnrollmentServiceImpl implements EnrollmentService {

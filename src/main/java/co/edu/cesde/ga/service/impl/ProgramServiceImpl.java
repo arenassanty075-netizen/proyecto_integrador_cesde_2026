@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Programs;
-import co.edu.cesde.ga.repository.ProgramsRepository;
-import co.edu.cesde.ga.service.ProgramService;
+import co.edu.cesde.ga.application.port.out.ProgramsRepository;
+import co.edu.cesde.ga.application.port.in.ProgramService;
 import java.util.List;
 
 public class ProgramServiceImpl implements ProgramService {

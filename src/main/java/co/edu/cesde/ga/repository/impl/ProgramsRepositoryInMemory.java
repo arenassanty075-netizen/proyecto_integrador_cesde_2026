@@ -1,7 +1,7 @@
 package co.edu.cesde.ga.repository.impl;
 
 import co.edu.cesde.ga.domain.model.Programs;
-import co.edu.cesde.ga.repository.ProgramsRepository;
+import co.edu.cesde.ga.application.port.out.ProgramsRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Role;
-import co.edu.cesde.ga.repository.RoleRepository;
-import co.edu.cesde.ga.service.RoleService;
+import co.edu.cesde.ga.application.port.out.RoleRepository;
+import co.edu.cesde.ga.application.port.in.RoleService;
 import java.util.List;
 
 public class RoleServiceImpl implements RoleService {

@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.User;
-import co.edu.cesde.ga.repository.UserRepository;
-import co.edu.cesde.ga.service.UserService;
+import co.edu.cesde.ga.application.port.out.UserRepository;
+import co.edu.cesde.ga.application.port.in.UserService;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {

@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Subject;
-import co.edu.cesde.ga.repository.SubjectsRepository;
-import co.edu.cesde.ga.service.SubjectService;
+import co.edu.cesde.ga.application.port.out.SubjectsRepository;
+import co.edu.cesde.ga.application.port.in.SubjectService;
 import java.util.List;
 
 public class SubjectServiceImpl implements SubjectService {

@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Period;
-import co.edu.cesde.ga.repository.PeriodRepository;
-import co.edu.cesde.ga.service.PeriodService;
+import co.edu.cesde.ga.application.port.out.PeriodRepository;
+import co.edu.cesde.ga.application.port.in.PeriodService;
 
 import java.util.List;
 

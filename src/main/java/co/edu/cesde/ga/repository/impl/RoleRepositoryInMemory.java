@@ -1,7 +1,7 @@
 package co.edu.cesde.ga.repository.impl;
 
 import co.edu.cesde.ga.domain.model.Role;
-import co.edu.cesde.ga.repository.RoleRepository;
+import co.edu.cesde.ga.application.port.out.RoleRepository;
 
 import java.util.ArrayList;
 import java.util.List;

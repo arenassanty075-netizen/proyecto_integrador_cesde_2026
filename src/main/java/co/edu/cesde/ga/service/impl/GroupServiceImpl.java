@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Groups;
-import co.edu.cesde.ga.repository.GroupRepository;
-import co.edu.cesde.ga.service.GroupsService;
+import co.edu.cesde.ga.application.port.out.GroupRepository;
+import co.edu.cesde.ga.application.port.in.GroupsService;
 
 import java.util.List;
 

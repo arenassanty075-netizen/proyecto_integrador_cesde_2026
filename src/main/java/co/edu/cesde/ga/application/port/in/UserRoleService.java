@@ -1,21 +1,13 @@
-package co.edu.cesde.ga.repository;
+package co.edu.cesde.ga.application.port.in;
 
 import co.edu.cesde.ga.domain.model.UserRole;
 import java.util.List;
 
-public interface UserRoleRepository {
-
+public interface UserRoleService {
     UserRole create(UserRole userRole);
-
-    boolean existsByUserIdAndRoleId(Long userId, Long roleId);
-
-    List<UserRole> findByUserId(Long userId);
-
-    List<UserRole> findByRoleId(Long roleId);
-
-    List<UserRole> findAll();
-
     boolean delete(Long userId, Long roleId);
-
-    int count();
+    boolean existsByUserIdAndRoleId(Long userId, Long roleId);
+    List<UserRole> findByUserId(Long userId);
+    List<UserRole> findByRoleId(Long roleId);
+    List<UserRole> findAll();
 }

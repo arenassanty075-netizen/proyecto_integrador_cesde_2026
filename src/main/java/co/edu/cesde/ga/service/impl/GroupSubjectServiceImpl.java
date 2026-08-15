@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.GroupSubjects;
-import co.edu.cesde.ga.repository.GroupSubjectsRepository;
-import co.edu.cesde.ga.service.GroupSubjectService;
+import co.edu.cesde.ga.application.port.out.GroupSubjectsRepository;
+import co.edu.cesde.ga.application.port.in.GroupSubjectService;
 import java.util.List;
 
 public class GroupSubjectServiceImpl implements GroupSubjectService {

@@ -4,8 +4,8 @@ package co.edu.cesde.ga.service.impl;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Grade;
-import co.edu.cesde.ga.repository.GradesRepository;
-import co.edu.cesde.ga.service.GradesService;
+import co.edu.cesde.ga.application.port.out.GradesRepository;
+import co.edu.cesde.ga.application.port.in.GradesService;
 import java.util.List;
 
 public class GradesServiceImpl implements GradesService {

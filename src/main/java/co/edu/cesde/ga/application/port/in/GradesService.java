@@ -1,5 +1,5 @@
 
-package co.edu.cesde.ga.service;
+package co.edu.cesde.ga.application.port.in;
 
 import co.edu.cesde.ga.domain.model.Grade;
 import java.util.List;

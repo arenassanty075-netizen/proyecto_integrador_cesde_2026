@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Student;
-import co.edu.cesde.ga.service.StudentService;
-import co.edu.cesde.ga.repository.StudentRepository;
+import co.edu.cesde.ga.application.port.in.StudentService;
+import co.edu.cesde.ga.application.port.out.StudentRepository;
 
 import java.util.List;
 

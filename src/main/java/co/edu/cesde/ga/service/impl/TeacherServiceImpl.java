@@ -4,8 +4,8 @@ import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
 import co.edu.cesde.ga.domain.model.Teacher;
-import co.edu.cesde.ga.repository.TeacherRepository;
-import co.edu.cesde.ga.service.TeacherService;
+import co.edu.cesde.ga.application.port.out.TeacherRepository;
+import co.edu.cesde.ga.application.port.in.TeacherService;
 import java.util.List;
 
 public class TeacherServiceImpl implements TeacherService {
