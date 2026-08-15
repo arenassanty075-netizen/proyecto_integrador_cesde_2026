@@ -1,4 +1,4 @@
-package co.edu.cesde.ga.repository.impl;
+package co.edu.cesde.ga.infrastructure.adapter.out.persistence.inmemory;
 
 import co.edu.cesde.ga.domain.model.Groups;
 import co.edu.cesde.ga.application.port.out.GroupRepository;

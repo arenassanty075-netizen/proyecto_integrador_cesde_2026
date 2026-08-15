@@ -37,7 +37,7 @@ build/
 ### Mac OS ###
 .DS_Store
 ### Intellij Idea ###
-out/
+
 !src/main/java/co/edu/cesde/ga/application/port/out/
 !src/main/java/co/edu/cesde/ga/application/port/out/**
 .idea/

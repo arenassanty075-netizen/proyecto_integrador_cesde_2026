@@ -1,4 +1,4 @@
-package co.edu.cesde.ga.repository.impl;
+package co.edu.cesde.ga.infrastructure.adapter.out.persistence.inmemory;
 
 import co.edu.cesde.ga.domain.model.Grade;
 import co.edu.cesde.ga.application.port.out.GradesRepository;

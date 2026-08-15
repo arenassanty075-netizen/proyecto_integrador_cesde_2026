@@ -1,5 +1,5 @@
 
-package co.edu.cesde.ga.service.impl;
+package co.edu.cesde.ga.application.service.impl;
 
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
