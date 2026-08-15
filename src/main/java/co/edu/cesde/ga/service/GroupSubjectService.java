@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.service;
 
-import co.edu.cesde.ga.model.GroupSubjects;
+import co.edu.cesde.ga.domain.model.GroupSubjects;
 import java.util.List;
 
 public interface GroupSubjectService {

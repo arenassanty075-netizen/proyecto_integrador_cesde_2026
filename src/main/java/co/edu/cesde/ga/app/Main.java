@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.app;
 
-import co.edu.cesde.ga.model.*;
+import co.edu.cesde.ga.domain.model.*;
 import co.edu.cesde.ga.repository.impl.*;
 import co.edu.cesde.ga.service.impl.*;
 import java.time.LocalDateTime;

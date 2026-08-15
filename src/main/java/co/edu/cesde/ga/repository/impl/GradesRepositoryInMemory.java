@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository.impl;
 
-import co.edu.cesde.ga.model.Grade;
+import co.edu.cesde.ga.domain.model.Grade;
 import co.edu.cesde.ga.repository.GradesRepository;
 
 import java.util.ArrayList;

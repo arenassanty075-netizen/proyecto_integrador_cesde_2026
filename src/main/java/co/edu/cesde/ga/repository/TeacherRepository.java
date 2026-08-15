@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository;
 
-import co.edu.cesde.ga.model.Teacher;
+import co.edu.cesde.ga.domain.model.Teacher;
 import java.util.List;
 
 public interface TeacherRepository {

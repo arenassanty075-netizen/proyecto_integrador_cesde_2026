@@ -1,7 +1,7 @@
 package co.edu.cesde.ga.repository;
 
 
-import co.edu.cesde.ga.model.Enrollment;
+import co.edu.cesde.ga.domain.model.Enrollment;
 
 import java.util.List;
 

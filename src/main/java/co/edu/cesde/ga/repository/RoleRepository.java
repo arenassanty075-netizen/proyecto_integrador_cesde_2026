@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository;
 
-import co.edu.cesde.ga.model.Role;
+import co.edu.cesde.ga.domain.model.Role;
 import java.util.List;
 
 public interface RoleRepository {

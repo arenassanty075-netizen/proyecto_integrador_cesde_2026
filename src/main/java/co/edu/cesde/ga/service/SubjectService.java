@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.service;
 
-import co.edu.cesde.ga.model.Subject;
+import co.edu.cesde.ga.domain.model.Subject;
 import java.util.List;
 
 public interface SubjectService {

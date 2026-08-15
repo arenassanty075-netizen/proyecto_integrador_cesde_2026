@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository;
 
-import co.edu.cesde.ga.model.Grade;
+import co.edu.cesde.ga.domain.model.Grade;
 import java.util.List;
 
 public interface GradesRepository {

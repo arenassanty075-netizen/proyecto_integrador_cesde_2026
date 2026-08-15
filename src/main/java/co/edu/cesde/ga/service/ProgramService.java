@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.service;
 
-import co.edu.cesde.ga.model.Programs;
+import co.edu.cesde.ga.domain.model.Programs;
 import java.util.List;
 
 public interface ProgramService {

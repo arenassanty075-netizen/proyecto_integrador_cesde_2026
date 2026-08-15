@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository.impl;
 
-import co.edu.cesde.ga.model.Groups;
+import co.edu.cesde.ga.domain.model.Groups;
 import co.edu.cesde.ga.repository.GroupRepository;
 
 import java.util.ArrayList;

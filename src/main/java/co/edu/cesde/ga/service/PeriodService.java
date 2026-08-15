@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.service;
 
-import co.edu.cesde.ga.model.Period;
+import co.edu.cesde.ga.domain.model.Period;
 import java.util.List;
 
 public interface PeriodService {

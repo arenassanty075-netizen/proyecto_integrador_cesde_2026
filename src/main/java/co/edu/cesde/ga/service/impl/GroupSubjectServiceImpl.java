@@ -3,7 +3,7 @@ package co.edu.cesde.ga.service.impl;
 import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
-import co.edu.cesde.ga.model.GroupSubjects;
+import co.edu.cesde.ga.domain.model.GroupSubjects;
 import co.edu.cesde.ga.repository.GroupSubjectsRepository;
 import co.edu.cesde.ga.service.GroupSubjectService;
 import java.util.List;

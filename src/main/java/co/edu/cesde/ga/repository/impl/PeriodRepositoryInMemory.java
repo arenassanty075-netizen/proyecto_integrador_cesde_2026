@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository.impl;
 
-import co.edu.cesde.ga.model.Period;
+import co.edu.cesde.ga.domain.model.Period;
 import co.edu.cesde.ga.repository.PeriodRepository;
 
 import java.util.ArrayList;

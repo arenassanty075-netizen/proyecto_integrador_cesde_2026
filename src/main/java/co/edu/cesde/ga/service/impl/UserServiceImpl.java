@@ -3,7 +3,7 @@ package co.edu.cesde.ga.service.impl;
 import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
-import co.edu.cesde.ga.model.User;
+import co.edu.cesde.ga.domain.model.User;
 import co.edu.cesde.ga.repository.UserRepository;
 import co.edu.cesde.ga.service.UserService;
 import java.util.List;

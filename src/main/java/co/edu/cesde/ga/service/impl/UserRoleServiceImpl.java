@@ -3,7 +3,7 @@ package co.edu.cesde.ga.service.impl;
 import co.edu.cesde.ga.exceptions.DuplicateException;
 import co.edu.cesde.ga.exceptions.InvalidDataException;
 import co.edu.cesde.ga.exceptions.NotFoundException;
-import co.edu.cesde.ga.model.UserRole;
+import co.edu.cesde.ga.domain.model.UserRole;
 import co.edu.cesde.ga.repository.UserRoleRepository;
 import co.edu.cesde.ga.service.UserRoleService;
 import java.util.List;

@@ -1,4 +1,4 @@
-package co.edu.cesde.ga.model;
+package co.edu.cesde.ga.domain.model;
 
 public class Programs {
 

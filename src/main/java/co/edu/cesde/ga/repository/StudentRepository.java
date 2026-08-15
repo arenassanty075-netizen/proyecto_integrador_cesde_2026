@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.repository;
 
-import co.edu.cesde.ga.model.Student;
+import co.edu.cesde.ga.domain.model.Student;
 import java.util.List;
 
 public interface StudentRepository {
