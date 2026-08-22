@@ -10,11 +10,11 @@ Desarrollado en Java con Maven, siguiendo arquitectura hexagonal (puertos y adap
 - arenassanty075
 
 ## Estrategia de ramas (GitFlow)
-- `main`: rama de producción, contiene versiones estables y listas para entrega.
-- `develop`: rama de integración, donde se juntan todas las funcionalidades en desarrollo.
-- Ramas de trabajo por integrante (equivalentes a `feature`): en lugar del prefijo `feature/`, el equipo nombra las ramas según el integrante responsable (ej. `marcela`, `rama_santiago`), para identificar claramente quién trabaja en qué. Estas ramas salen de `develop` y se fusionan de vuelta a `develop`.
-- `release/x.x.x`: rama de preparación de una nueva versión, creada a partir de `develop`, usada para ajustes finales antes de pasar a `main`.
-- `hotfix/nombre-fix`: rama para corregir errores urgentes en producción, creada a partir de `main` y fusionada tanto a `main` como a `develop`.
+- `principal` (main): rama de producción, contiene versiones estables y listas para entrega.
+- `desarrollar` (develop): rama de integración, donde se juntan todas las funcionalidades en desarrollo.
+- Ramas de trabajo por integrante (equivalentes a `feature`): el equipo nombra las ramas según el integrante responsable (ej. `Marcela`, `rama_santiago`), para identificar claramente quién trabaja en qué. Estas ramas salen de `desarrollar` y se fusionan de vuelta a `desarrollar`.
+- `versión/1.0.0` (equivalente a `release`): rama de preparación de una nueva versión, creada a partir de `desarrollar`, usada para ajustes finales antes de pasar a `principal`.
+- `hotfix/corrección-inicial`: rama para corregir errores urgentes en producción, creada a partir de `principal` y fusionada tanto a `principal` como a `desarrollar`.
   
 ## Arquitectura
 El proyecto sigue una arquitectura hexagonal, organizada en:
