@@ -1,12 +1,19 @@
 package co.edu.cesde.ga.domain.model;
 
-public abstract class Person {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+public abstract class Person {
+    @NotNull
     private Long userId;
     private String code;
+    @NotBlank
     private String documentNumber;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @NotBlank
     private String status;
 
     public Person() {}

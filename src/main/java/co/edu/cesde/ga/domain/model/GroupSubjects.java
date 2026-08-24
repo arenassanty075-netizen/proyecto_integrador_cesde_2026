@@ -8,9 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "group_subjects")
+@Getter
+@Setter
+@ToString
 public class GroupSubjects {
 
     @Id
@@ -41,37 +48,7 @@ public class GroupSubjects {
         this.teacherId = teacherId;
     }
 
-    public Long getGroupSubjectId() {
-        return groupSubjectId;
-    }
 
-    public void setGroupSubjectId(Long groupSubjectId) {
-        this.groupSubjectId = groupSubjectId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(String subjectId) {
-        this.subjectId = subjectId;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
 
     @Override
     public String toString() {

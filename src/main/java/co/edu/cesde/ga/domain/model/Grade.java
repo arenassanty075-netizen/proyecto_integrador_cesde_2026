@@ -10,9 +10,16 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "grades")
+@Getter
+@Setter
+@ToString
 public class Grade {
 
     @Id
@@ -49,45 +56,7 @@ public class Grade {
         this.observation = observation;
     }
 
-    public Long getGradeId() {
-        return gradeId;
-    }
 
-    public void setGradeId(Long gradeId) {
-        this.gradeId = gradeId;
-    }
-
-    public Long getGroupSubjectId() {
-        return groupSubjectId;
-    }
-
-    public void setGroupSubjectId(Long groupSubjectId) {
-        this.groupSubjectId = groupSubjectId;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public int getFinalScore() {
-        return finalScore;
-    }
-
-    public void setFinalScore(int finalScore) {
-        this.finalScore = finalScore;
-    }
-
-    public String getObservation() {
-        return observation;
-    }
-
-    public void setObservation(String observation) {
-        this.observation = observation;
-    }
 
     @Override
     public String toString() {

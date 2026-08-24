@@ -1,8 +1,25 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@Entity
+@Table(name = "teacher")
+@Getter
+@Setter
+@ToString
 public class Teacher extends Person {
 
-    private long teacherId;
+    @Id
+    @Column(name = "teacher_id", nullable = false)
+    private Long teacherId;
 
     public Teacher() {
     }
@@ -12,13 +29,7 @@ public class Teacher extends Person {
         super(userId, code, documentNumber, firstName, lastName, status);
     }
 
-    public long getTeacherId() {
-        return teacherId;
-    }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
 
     @Override
     public String getRole() {

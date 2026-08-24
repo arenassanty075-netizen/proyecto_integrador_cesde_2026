@@ -8,9 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "groups")
+@Getter
+@Setter
+@ToString
 public class Groups {
 
     @Id
@@ -45,45 +52,7 @@ public class Groups {
         this.shift = shift;
     }
 
-    public Long getGroupId() {
-        return groupId;
-    }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Long getProgramId() {
-        return programId;
-    }
-
-    public void setProgramId(Long programId) {
-        this.programId = programId;
-    }
-
-    public Long getPeriodId() {
-        return periodId;
-    }
-
-    public void setPeriodId(Long periodId) {
-        this.periodId = periodId;
-    }
-
-    public String getShift() {
-        return shift;
-    }
-
-    public void setShift(String shift) {
-        this.shift = shift;
-    }
 
     @Override
     public String toString() {

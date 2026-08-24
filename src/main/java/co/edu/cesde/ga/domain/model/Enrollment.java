@@ -1,10 +1,18 @@
 package co.edu.cesde.ga.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "enrollments")
+@Getter
+@Setter
+@ToString
 public class Enrollment {
 
     @Id
@@ -44,53 +52,6 @@ public class Enrollment {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Long getEnrollmentId() {
-        return enrollmentId;
-    }
-
-    public void setEnrollmentId(Long enrollmentId) {
-        this.enrollmentId = enrollmentId;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public Long getPeriodId() {
-        return periodId;
-    }
-
-    public void setPeriodId(Long periodId) {
-        this.periodId = periodId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 
     @PrePersist
     protected void onCreate() {

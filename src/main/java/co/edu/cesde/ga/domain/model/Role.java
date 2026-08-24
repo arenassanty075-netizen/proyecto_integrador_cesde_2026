@@ -1,45 +1,50 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "role")
+@Getter
+@Setter
+@ToString
 public class Role {
 
-    private long roleId;  // ✅ long
+    @Id
+    @NotNull
+    @Column(name = "role_id", nullable = false)
+    private Long roleId;
+
+    @NotBlank
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
+
+    @NotBlank
+    @Column(name = "description", nullable = false)
     private String description;
 
     public Role() {
     }
 
-    public Role(long roleId, String name, String description) { // ✅ long
+    public Role(Long roleId, String name, String description) {
         this.roleId = roleId;
         this.name = name;
         this.description = description;
     }
 
-    public long getRoleId() { // ✅ long
-        return roleId;
-    }
 
-    public void setRoleId(long roleId) { // ✅ asigna el valor
-        this.roleId = roleId;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
     @Override
     public String toString() {
-        return "Role { roleId=" + roleId + ", name=" + name + ", description=" + description + " }";
+        return "Role { roleId=" + roleId +
+                ", name=" + name +
+                ", description=" + description + " }";
     }
 }

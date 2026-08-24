@@ -7,9 +7,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "periods")
+@Getter
+@Setter
+@ToString
+
 public class Period {
 
     @Id
@@ -39,37 +46,6 @@ public class Period {
         this.endDate = endDate;
     }
 
-    public Long getPeriodId() {
-        return periodId;
-    }
-
-    public void setPeriodId(Long periodId) {
-        this.periodId = periodId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
 
     @Override
     public String toString() {

@@ -1,15 +1,50 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
+@ToString
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String username;
-    private String email;
-    private String passwordHash;
-    private String status;
-    private String createdAt;
 
-    public User(Long userId, String username, String email, String passwordHash, String status, String createdAt) {
+    @NotBlank(message = "El username es obligatorio")
+    @Column(nullable = false)
+    private String username;
+
+    @NotBlank(message = "El email es obligatorio")
+    @Email(message = "El email no es válido")
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @NotBlank(message = "La contraseña es obligatoria")
+    @Column(nullable = false)
+    private String passwordHash;
+
+    @NotBlank(message = "El estado es obligatorio")
+    @Column(nullable = false)
+    private String status;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    public User() {
+    }
+
+    public User(Long userId, String username, String email, String passwordHash,
+                String status, LocalDateTime createdAt) {
         this.userId = userId;
         this.username = username;
         this.email = email;
@@ -18,35 +53,12 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setUserId(Long l) {
-    }
 
     @Override
     public String toString() {
-        return "User { userId=" + userId + ", username=" + username + ", email=" + email + ", status=" + status + " }";
+        return "User { userId=" + userId +
+                ", username=" + username +
+                ", email=" + email +
+                ", status=" + status + " }";
     }
 }
