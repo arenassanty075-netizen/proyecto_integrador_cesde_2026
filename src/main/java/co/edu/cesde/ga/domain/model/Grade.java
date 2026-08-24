@@ -1,16 +1,47 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "grades")
 public class Grade {
-    private long gradeId;
-    private long groupSubjectId;
-    private long studentId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "grade_id")
+    private Long gradeId;
+
+    @NotNull(message = "El grupo de materia es obligatorio")
+    @Column(name = "group_subject_id", nullable = false)
+    private Long groupSubjectId;
+
+    @NotNull(message = "El estudiante es obligatorio")
+    @Column(name = "student_id", nullable = false)
+    private Long studentId;
+
+    @Min(value = 0, message = "La nota mínima es 0")
+    @Max(value = 5, message = "La nota máxima es 5")
+    @Column(name = "final_score", nullable = false)
     private int finalScore;
+
+    @NotBlank(message = "La observación no puede ser nula ni estar vacía")
+    @Column(name = "observation", nullable = false)
     private String observation;
 
     public Grade() {
     }
 
-    public Grade(long gradeId, long groupSubjectId, long studentId, int finalScore, String observation) {
+    public Grade(Long gradeId, Long groupSubjectId, Long studentId,
+                 int finalScore, String observation) {
         this.gradeId = gradeId;
         this.groupSubjectId = groupSubjectId;
         this.studentId = studentId;
@@ -18,23 +49,54 @@ public class Grade {
         this.observation = observation;
     }
 
-    public long getGradeId() { return gradeId; }
-    public void setGradeId(long gradeId) { this.gradeId = gradeId; }
+    public Long getGradeId() {
+        return gradeId;
+    }
 
-    public long getGroupSubjectId() { return groupSubjectId; }
-    public void setGroupSubjectId(long groupSubjectId) { this.groupSubjectId = groupSubjectId; }
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
+    }
 
-    public long getStudentId() { return studentId; }
-    public void setStudentId(long studentId) { this.studentId = studentId; }
+    public Long getGroupSubjectId() {
+        return groupSubjectId;
+    }
 
-    public int getFinalScore() { return finalScore; }
-    public void setFinalScore(int finalScore) { this.finalScore = finalScore; }
+    public void setGroupSubjectId(Long groupSubjectId) {
+        this.groupSubjectId = groupSubjectId;
+    }
 
-    public String getObservation() { return observation; }
-    public void setObservation(String observation) { this.observation = observation; }
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(int finalScore) {
+        this.finalScore = finalScore;
+    }
+
+    public String getObservation() {
+        return observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
+    }
 
     @Override
     public String toString() {
-        return "Grade { gradeId=" + gradeId + ", groupSubjectId=" + groupSubjectId + ", studentId=" + studentId + ", finalScore=" + finalScore + ", observation=" + observation + " }";
+        return "Grade{" +
+                "gradeId=" + gradeId +
+                ", groupSubjectId=" + groupSubjectId +
+                ", studentId=" + studentId +
+                ", finalScore=" + finalScore +
+                ", observation='" + observation + '\'' +
+                '}';
     }
 }

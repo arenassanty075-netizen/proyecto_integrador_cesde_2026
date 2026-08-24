@@ -1,16 +1,37 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "periods")
 public class Period {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "period_id")
     private Long periodId;
+
+    @NotBlank(message = "El nombre del periodo no puede ser nulo ni estar vacío")
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @NotBlank(message = "La fecha de inicio no puede ser nula ni estar vacía")
+    @Column(name = "start_date", nullable = false)
     private String startDate;
+
+    @NotBlank(message = "La fecha de finalización no puede ser nula ni estar vacía")
+    @Column(name = "end_date", nullable = false)
     private String endDate;
 
-    // Constructor vacío
-    public Period() {}
+    public Period() {
+    }
 
-    // Constructor con parámetros
     public Period(Long periodId, String name, String startDate, String endDate) {
         this.periodId = periodId;
         this.name = name;
@@ -18,16 +39,14 @@ public class Period {
         this.endDate = endDate;
     }
 
-    // Getter y setter para periodId
     public Long getPeriodId() {
         return periodId;
     }
 
-    public void setPeriodId(long periodId) {
+    public void setPeriodId(Long periodId) {
         this.periodId = periodId;
     }
 
-    // Getter y setter para name
     public String getName() {
         return name;
     }
@@ -36,7 +55,6 @@ public class Period {
         this.name = name;
     }
 
-    // Getter y setter para startDate
     public String getStartDate() {
         return startDate;
     }
@@ -45,7 +63,6 @@ public class Period {
         this.startDate = startDate;
     }
 
-    // Getter y setter para endDate
     public String getEndDate() {
         return endDate;
     }
@@ -56,6 +73,11 @@ public class Period {
 
     @Override
     public String toString() {
-        return "Period { periodId=" + periodId + ", name=" + name + ", startDate=" + startDate + ", endDate=" + endDate + " }";
+        return "Period{" +
+                "periodId=" + periodId +
+                ", name='" + name + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                '}';
     }
 }

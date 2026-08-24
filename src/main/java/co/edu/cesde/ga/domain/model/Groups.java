@@ -1,11 +1,37 @@
 package co.edu.cesde.ga.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "groups")
 public class Groups {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "group_id")
     private Long groupId;
+
+    @NotBlank(message = "El código del grupo no puede ser nulo ni estar vacío")
+    @Column(name = "code", nullable = false)
     private String code;
+
+    @NotNull(message = "El programa es obligatorio")
+    @Column(name = "program_id", nullable = false)
     private Long programId;
+
+    @NotNull(message = "El período es obligatorio")
+    @Column(name = "period_id", nullable = false)
     private Long periodId;
+
+    @NotBlank(message = "La jornada no puede ser nula ni estar vacía")
+    @Column(name = "shift", nullable = false)
     private String shift;
 
     public Groups() {
@@ -61,11 +87,12 @@ public class Groups {
 
     @Override
     public String toString() {
-        return "=== GROUP INFO ===\n" +
-                "ID: " + groupId + "\n" +
-                "Código: " + code + "\n" +
-                "Program ID: " + programId + "\n" +
-                "Period ID: " + periodId + "\n" +
-                "Shift: " + shift + "\n";
+        return "Groups{" +
+                "groupId=" + groupId +
+                ", code='" + code + '\'' +
+                ", programId=" + programId +
+                ", periodId=" + periodId +
+                ", shift='" + shift + '\'' +
+                '}';
     }
 }
