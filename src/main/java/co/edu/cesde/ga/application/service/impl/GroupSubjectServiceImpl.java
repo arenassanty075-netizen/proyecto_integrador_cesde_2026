@@ -1,0 +1,118 @@
+package co.edu.cesde.ga.application.service.impl;
+
+import co.edu.cesde.ga.exceptions.DuplicateException;
+import co.edu.cesde.ga.exceptions.InvalidDataException;
+import co.edu.cesde.ga.exceptions.NotFoundException;
+import co.edu.cesde.ga.domain.model.GroupSubjects;
+import co.edu.cesde.ga.application.port.out.GroupSubjectsRepository;
+import co.edu.cesde.ga.application.port.in.GroupSubjectService;
+import java.util.List;
+
+public class GroupSubjectServiceImpl implements GroupSubjectService {
+
+    private final GroupSubjectsRepository groupSubjectsRepository;
+
+    public GroupSubjectServiceImpl(GroupSubjectsRepository groupSubjectsRepository) {
+        this.groupSubjectsRepository = groupSubjectsRepository;
+    }
+
+    @Override
+    public GroupSubjects create(GroupSubjects groupSubject) {
+
+        if (groupSubject == null) {
+            throw new InvalidDataException("La asignación no puede ser nula");
+        }
+
+        if (isInvalidGroupSubject(groupSubject)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (groupSubjectsRepository.exists(
+                groupSubject.getGroupId(),
+                groupSubject.getSubjectId())) {
+
+            throw new DuplicateException("La materia ya está asignada al grupo");
+        }
+
+        return groupSubjectsRepository.create(groupSubject);
+    }
+
+    @Override
+    public boolean update(GroupSubjects groupSubject) {
+
+        if (groupSubject == null) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (isInvalidGroupSubject(groupSubject)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (!groupSubjectsRepository.exists(
+                groupSubject.getGroupId(),
+                groupSubject.getSubjectId())) {
+
+            throw new NotFoundException("Asignación no encontrada");
+        }
+
+        return groupSubjectsRepository.update(groupSubject);
+    }
+
+    @Override
+    public boolean delete(Long groupId, String subjectId) {
+
+        if (groupId == null || groupId <= 0L || !isNotBlank(subjectId)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        if (!groupSubjectsRepository.exists(groupId, subjectId)) {
+            throw new NotFoundException("Asignación no encontrada");
+        }
+
+        return groupSubjectsRepository.delete(groupId, subjectId);
+    }
+
+    @Override
+    public GroupSubjects findByIds(Long groupId, String subjectId) {
+
+        if (groupId == null || groupId <= 0L || !isNotBlank(subjectId)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        GroupSubjects groupSubjects =
+                groupSubjectsRepository.findByIds(groupId, subjectId);
+
+        if (groupSubjects == null) {
+            throw new NotFoundException("Asignación no encontrada");
+        }
+
+        return groupSubjects;
+    }
+
+    @Override
+    public boolean exists(Long groupId, String subjectId) {
+
+        if (groupId == null || groupId <= 0L || !isNotBlank(subjectId)) {
+            throw new InvalidDataException("Datos inválidos");
+        }
+
+        return groupSubjectsRepository.exists(groupId, subjectId);
+    }
+
+    @Override
+    public List<GroupSubjects> findAll() {
+        return groupSubjectsRepository.findAll();
+    }
+
+    private boolean isInvalidGroupSubject(GroupSubjects groupSubject) {
+        return groupSubject == null
+                || groupSubject.getGroupId() == null
+                || groupSubject.getGroupId() <= 0L
+                || !isNotBlank(groupSubject.getSubjectId())
+                || groupSubject.getTeacherId() <= 0L;
+    }
+
+    private boolean isNotBlank(String value) {
+        return value != null && !value.trim().isEmpty();
+    }
+}

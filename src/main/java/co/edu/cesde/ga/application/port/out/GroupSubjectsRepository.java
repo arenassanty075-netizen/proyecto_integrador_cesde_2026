@@ -1,0 +1,21 @@
+package co.edu.cesde.ga.application.port.out;
+
+import co.edu.cesde.ga.domain.model.GroupSubjects;
+import java.util.List;
+
+public interface GroupSubjectsRepository {
+
+    GroupSubjects create(GroupSubjects groupSubject);
+
+    boolean exists(Long groupId, String subjectId);
+
+    GroupSubjects findByIds(Long groupId, String subjectId);
+
+    List<GroupSubjects> findAll();
+
+    boolean delete(Long groupId, String subjectId);
+
+    int count();
+
+    boolean update(GroupSubjects groupSubject);
+}
