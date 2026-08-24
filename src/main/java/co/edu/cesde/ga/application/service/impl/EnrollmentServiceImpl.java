@@ -97,7 +97,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
                 || enrollment.getStudentId() == null
                 || enrollment.getGroupId() == null
                 || enrollment.getPeriodId() == null
-                || enrollment.getEnrolledAt() == null
                 || !isNotBlank(enrollment.getStatus());
     }
 
